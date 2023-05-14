@@ -3,7 +3,6 @@ package com.hom3.Flyway.UserInformation.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;

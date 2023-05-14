@@ -1,6 +1,7 @@
 package com.hom3.Flyway.UserInformation.services;
 
 import com.hom3.Flyway.UserInformation.dto.ContactDTO;
+import com.hom3.Flyway.UserInformation.exeptions.ContactNotFoundException;
 import com.hom3.Flyway.UserInformation.models.Contact;
 import com.hom3.Flyway.UserInformation.repositories.ContactRepository;
 import lombok.RequiredArgsConstructor;
@@ -41,7 +42,7 @@ public class ContactService {
         contactRepository.deleteById(id);
     }
 
-    public Boolean updateContactById(Long contactId,ContactDTO contactDTO){
+    public void updateContactById(Long contactId,ContactDTO contactDTO){
         Optional<Contact> findContact = contactRepository.findById(contactId);
         if (findContact.isPresent()) {
 
@@ -49,10 +50,8 @@ public class ContactService {
             findContact.get().setPhone(contactDTO.getPhone());
             findContact.get().setEmail(contactDTO.getEmail());
             contactRepository.save(findContact.get());
-            return true;
         } else {
-            return false;
+            throw new ContactNotFoundException(contactId);
         }
-
     }
 }
