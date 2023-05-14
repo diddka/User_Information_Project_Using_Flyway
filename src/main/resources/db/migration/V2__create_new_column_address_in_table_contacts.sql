@@ -1,0 +1,1 @@
+alter table contacts add address varchar(255) not null;

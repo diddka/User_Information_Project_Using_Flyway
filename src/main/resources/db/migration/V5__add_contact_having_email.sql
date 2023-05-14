@@ -1,0 +1,1 @@
+INSERT INTO `contacts` (`id`, `name`, `phone`, `address`,`email`) VALUES (NULL, 'Maria', '555555555555', 'Some Address MAria',"mimeto@abv.bg");
